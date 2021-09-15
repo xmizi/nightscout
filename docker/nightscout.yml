@@ -1,0 +1,55 @@
+pepicek:
+    image: 'nightscout_1422_image:latest'
+    container_name: ns_pepicek
+    hostname: jmeno.domena.tld
+    command: node lib/server/server.js
+    restart: always
+    mem_limit: 300m
+    environment:
+     - 'BASE_URL=https://jmeno.domena.tld/'
+     - MONGO_COLLECTION=entries
+     - MONGO_TREATMENTS_COLLECTION=treatments
+     - MONGO_DEVICESTATUS_COLLECTION=devicestatus
+     - MONGO_PROFILE_COLLECTION=profile
+     - MONGO_FOOD_COLLECTION=food
+     - DISPLAY_UNITS=mmol
+     - 'ENABLE=careportal%20iob%20bwp%20ar2%20sage%20iage%20food%20profile%20timeago%20upbat%20direction%20delta%20rawbg%20cob%20boluscalc%20cage%20basal%20bgi%20pump%20openaps%20bage%20cors'
+     - DEVICESTATUS_ADVANCED=true
+     - API_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+     - 'MONGO_CONNECTION=mongodb://XXXXXX:XXXXXXXX@10.10.10.1:27017/nightscoutdb'
+     - INSECURE_USE_HTTP=true
+     - CUSTOM_TITLE=Pepicek
+     - PORT=1337
+     - TIME_FORMAT=24
+     - PUMP_FIELDS=reservoir%20battery%20clock%320status
+     - PUMP_WARN_BATT_P=40
+     - PUMP_URGENT_BATT_P=20
+     - PUMP_WARN_RES=15
+     - PUMP_URGENT_RES=5
+     - THEME=colors
+     - LANGUAGE=cs
+     - BG_TARGET_BOTTOM=71
+     - BG_LOW=51
+     - BG_TARGET_TOP=182
+     - BG_HIGH=225
+     - UPBAT_ENABLE_ALERTS=true
+     - UPBAT_WARN=35
+     - UPBAT_URGENT=20
+     - SCALE_Y=log-dynamic
+     - BASAL_RENDER=default
+     - SHOW_FORECAST=openaps
+     - CAGE_ENABLE_ALERTS=true
+     - CAGE_DISPLAY=days
+     - CAGE_URGENT=120
+     - CAGE_WARN=96
+     - CAGE_INFO=72
+     - BAGE_ENABLE_ALERTS=true
+     - BAGE_DISPLAY=days
+     - BAGE_INFO=312
+     - BAGE_WARN=216
+     - BAGE_URGENT=360
+     - DBSIZE_MAX=500
+     - DBSIZE_WARN_PERCENTAGE=70
+     - DBSIZE_URGENT_PERCENTAGE=90
+    ports:
+     - '1337:1337'

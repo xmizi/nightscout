@@ -1,0 +1,23 @@
+FROM node:12-alpine
+
+RUN apk add --no-cache python3 \
+    && apk add --no-cache make \
+    && apk add --no-cache g++ \
+    && apk add --no-cache git \
+    && npm install pm2@latest -g
+
+RUN mkdir -p /opt/nightscout
+
+WORKDIR /opt/nightscout
+RUN git clone https://github.com/nightscout/cgm-remote-monitor.git /opt/nightscout
+RUN cd /opt/nightscout &&  git checkout ${DEPLOY_HEAD-master}
+RUN cd /opt/nightscout && npm update
+RUN cd /opt/nightscout && npm audit fix
+RUN cd /opt/nightscout && npm install
+RUN cd /opt/nightscout && export NODE_OPTIONS=--max_old_space_size=1024
+RUN cd /opt/nightscout && npm run postinstall
+RUN cd /opt/nightscout && npm run env
+
+#EXPOSE 1337
+
+CMD ["node", "server.js"]
