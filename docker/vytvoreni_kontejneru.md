@@ -31,10 +31,10 @@ docker-compose -f ./nightscout-pepicek.yml -p ns_pepicek up -d
 3. kontrola zda běží:
 ```
 root@nightscout:~# docker ps
-CONTAINER ID   IMAGE                                      COMMAND                  CREATED         STATUS                PORTS                              NAMES
-fc7ec2a4f3fe   nightscout_1422_image:latest               "docker-entrypoint.s…"   6 months ago    Up 7 days             0.0.0.0:1337->1337/tcp             ns_pepicek
-d64e6cc59faa   nightscout_1422_image:latest               "docker-entrypoint.s…"   6 months ago    Up 7 days             1337/tcp, 0.0.0.0:1338->1338/tcp   ns_honzicek
-4c2e9836edee   gcr.io/google-containers/cadvisor:latest   "/usr/bin/cadvisor -…"   14 months ago   Up 7 days (healthy)   0.0.0.0:8080->8080/tcp             cadvisor
+CONTAINER ID   IMAGE                                      COMMAND                  CREATED         STATUS                PORTS                        NAMES
+fc7ec2a4f3fe   nightscout_1422_image:latest               "docker-entrypoint.s…"   6 months ago    Up 7 days             0.0.0.0:1337->1337/tcp       ns_pepicek
+d64e6cc59faa   nightscout_1422_image:latest               "docker-entrypoint.s…"   6 months ago    Up 7 days             0.0.0.0:1338->1338/tcp       ns_honzicek
+4c2e9836edee   gcr.io/google-containers/cadvisor:latest   "/usr/bin/cadvisor -…"   14 months ago   Up 7 days (healthy)   0.0.0.0:8080->8080/tcp       cadvisor
 ```
 kontejnery spuštěné, běží.
 ```
