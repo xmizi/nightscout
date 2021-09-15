@@ -3,7 +3,7 @@ pepicek:
     container_name: ns_pepicek
     hostname: jmeno.domena.tld
     command: node lib/server/server.js
-    restart: always
+    restart: unless-stopped
     mem_limit: 300m
     environment:
      - 'BASE_URL=https://jmeno.domena.tld/'
