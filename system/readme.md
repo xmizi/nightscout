@@ -11,4 +11,4 @@ iface lo:1 inet static
     address 10.10.10.1
     netmask 255.255.0.0
 ```
-Upravený soubor s konfigurací sítě je v seznamu souborů
+Upravený soubor s konfigurací sítě ``interfaces`` je v seznamu souborů
