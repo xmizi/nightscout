@@ -1,4 +1,4 @@
-# Stručný postup pro vytvoření [Nightscout](https://www.nightscout.info) serveru pro osobní použití
+# Jak vytvořit [Nightscout](https://www.nightscout.info) server pro osobní použití
 
 # Popis serveru
 * Linuxový server založený na distribuci debian
