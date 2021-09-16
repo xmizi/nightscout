@@ -14,7 +14,7 @@
    * Nginx
    * MongoDB
    * LetsEncrypt 
- 3. **Doména**: pro přístup na nightscout je potřeba [registrovaná doména](https://www.forpsi.com/domain/). Bezpodmínečně nemusí být vlastní, pokud vám někdo umožní nasměrovat doménu 3. řádu (např ns-pepicek.mojedomena.cz). Jde o nastavení A záznamu v DNS
+ 3. **Doména**: pro přístup na nightscout je nutné [doménové jméno](https://www.forpsi.com/domain/). Obejdete se i bez registrace (a tudíž ročního opoplatku za její udržování). Máte-li známého který ji již vlastní, a umožní vám na server nasměrovat subdoménu (např ns-pepicek.mojedomena.cz). Jde o nastavení A záznamu v DNS na IP adresu serveru. 
 
 # Postup instalace a konfigurace
 V každé složce je:
