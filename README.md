@@ -23,7 +23,7 @@ V každé složce je:
 
 # Zabezpečení serveru
 * Nightscout má své vlastní ochrany (API_KEY + přístupové tokeny)
-* Zabezpečené serveru není ovsahem tohoto návodu
+* Zabezpečení serveru (firewall) není ovsahem tohoto návodu
 
 # License
 [![Creative Commons: Uveďte původ-Neužívejte komerčně 4.0 Mezinárodní License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png "Creative Commons: Uveďte původ-Neužívejte komerčně 4.0 Mezinárodní License")](http://creativecommons.org/licenses/by-nc/4.0/)
