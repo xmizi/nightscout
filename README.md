@@ -17,7 +17,9 @@
  3. **Doména**: pro přístup na nightscout je potřeba [registrovaná doména](https://www.forpsi.com/domain/). Bezpodmínečně nemusí být vlastní, pokud vám někdo umožní nasměrovat doménu 3. řádu (např ns-pepicek.mojedomena.cz). Jde o nastavení A záznamu v DNS
 
 # Postup instalace a konfigurace
-V každé složce je konfigirační soubor, který je nutné upravit podle svého
+V každé složce je:
+* konfigirační soubor, který je nutné upravit podle svého
+* stručný postup co dělat
 
 # License
 [![Creative Commons: Uveďte původ-Neužívejte komerčně 4.0 Mezinárodní License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png "Creative Commons: Uveďte původ-Neužívejte komerčně 4.0 Mezinárodní License")](http://creativecommons.org/licenses/by-nc/4.0/)
