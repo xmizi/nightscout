@@ -1,9 +1,9 @@
 # Nastavení mongodb
 
-=== Instalace ===
+## Instalace ##
 standardně podle distribuce. Používánme Debian, takže podle https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/. Aktuálně mám mongodb 4.2. Vyšší verze jsou na vyzkoušení.....
 
-=== Uživatelé ===
+## Uživatelé ##
 
 1. vytvoření administrátora
 ```
