@@ -14,7 +14,7 @@ mongo  --port 27017 admin --eval "db.createUser({user:'nsadmin',pwd:'mojetajnehe
 ```
 mongo --port 27017 -u nsadmin -pmojetajneheslo --authenticationDatabase admin nightscoutdb1 --eval "db.createUser({user: 'nsuser1', pwd: 'mojeheslo123',roles: ['readWrite']})"
 ```
-  _analogicky se vytvoří další_
+  _analogicky se vytvoří další databáze + uživatel pro ní_
 ```
 mongo --port 27017 -u nsadmin -pmojetajneheslo --authenticationDatabase admin nightscoutdb2 --eval "db.createUser({user: 'nsuser2', pwd: 'mojeheslo123',roles: ['readWrite']})"
 ```
