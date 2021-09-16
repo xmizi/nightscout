@@ -1,7 +1,7 @@
 # Nastavení mongodb
 
 ## Instalace ##
-standardně podle distribuce. Používánme Debian, takže podle https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/. Aktuálně mám mongodb 4.2. Vyšší verze jsou na vyzkoušení.....
+standardně podle distribuce. Používám Debian, takže podle https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/. Aktuálně mám mongodb 4.2. Vyšší verze jsou na vyzkoušení.....
 
 ## Uživatelé ##
 
@@ -13,4 +13,4 @@ mongo  --port 27017 admin --eval "db.createUser({user:'nsadmin',pwd:'mojetajnehe
 ```
 mongo --port 27017 -u nsadmin -pmojetajneheslo --authenticationDatabase admin nightscoutdb --eval "db.createUser({user: 'nsuser', pwd: 'mojeheslo123',roles: ['readWrite']})"
 ```
-_analogicky se vytvoří další_
+  _analogicky se vytvoří další_
