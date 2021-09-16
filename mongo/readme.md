@@ -5,10 +5,11 @@ standardně podle distribuce. Používám Debian, takže podle https://docs.mong
 
 ## Uživatelé ##
 
-1. vytvoření administrátora
+1. vytvoření administrátora (v konfiguraci serveru se vypne auth, vytvoří se administrátor, a pak se zase zapne)
 ```
 mongo  --port 27017 admin --eval "db.createUser({user:'nsadmin',pwd:'mojetajneheslo', roles:[{role:'root',db:'admin'}]})"
 ```
+
 2. vytvoření běžného uživatele (co se bude přihlašovat z nightscoutu). Pro každý Nightscout je potřeba vytvořit speciální databázi (např. nightscoutdb1. nightscoutdb2....)
 ```
 mongo --port 27017 -u nsadmin -pmojetajneheslo --authenticationDatabase admin nightscoutdb1 --eval "db.createUser({user: 'nsuser1', pwd: 'mojeheslo123',roles: ['readWrite']})"
