@@ -3,34 +3,35 @@ Před vytvořením kontejneru je nutné, aby existoval obraz serveru, na základ
 náročnou akci, kteou by nemusel low-cost VPS (1vCPU + 1 GB RAM) dokončit. Ovbykle to spadlo na nedostaku paměti. Obraz
 ale lze sestavit na jakémkoliv jiném počítači, kam si docker nainstalujeme. To bude i tento případ.
 
-1. instalace dockeru na počítači
+## A. na počítači
 
-2. vytvoření obrazu serveru (Dockerfile je konfigurace, která je v aktuální adresáři), 
-   docker build --no-cache -t nightscout_1422_image . -f ./Dockerfile
-   * je dobrá praxe označovat soubory verzí Nigtscoutu
+1. vytvořit obraz NS serveru (Dockerfile je konfigurace, která je v aktuální adresáři), 
+   ``docker build --no-cache -t nightscout_1422_image . -f ./Dockerfile``
+   * dobrá praxe je pojmneovat obraz podle verze Nigtscoutu
    * --no-cache zajistí, že se obraz vytvoří "nanovo, bez ohledu na předchozí akce"
 
-3. Pokud to děláme na počítači (nebo jiném serveru), je třeba obraz vyexportovat (defaultně je v lokálním docker úložišti)
-   Dobrá praxe je ho rovnou zkomprimovat.
-   docker save nightscout_1422_image | gzip -9 >  nightscout_1422_image.tgz
+2. vyexportovat hotový obraz z úložiště (defaultně je v lokálním docker úložišti), a rovnou ho zkomprimovat. 
+   ``docker save nightscout_1422_image | gzip -9 >  nightscout_1422_image.tgz``
 
+3. zkopírovat vytvořeného obrazu na server (WinSCP apod....)
 
-3. zkopírování vytvořeného obrazu na server (WinSCP apod....)
+4. Na serveru obraz naimporovat do úložiště, aby ho docker mohl využít. Pokud jsme ho nahráli do /root/docker/images/, pak je to takto:
+   ``docker load -i /root/docker/images/nightscout_1422_image.tgz``
 
-4. Na serveru se obraz naimportuje. Pokud jsme ho nahráli do /root/docker/images/, pak je to takto:
-   docker load -i /root/docker/images/nightscout_1422_image.tgz
+5. Hotovo, můžeme přejít na vytvoření kontejneru
 
-5. Hotovo, můžeme přejít na vytvření kontejneru
+## B. přímo na severu
 
+Stačí kroky 1 a 4 z předchozí kapitoly. Po vytvoření je obraz automaticky uložen do lokálního úložiště dockeru a hned k dispozici.
 
 # Vytvoření vlastního kontejneru
 
-Konfigurace a skripty napriklad v ~/docker/nightscout/
+Konfigurace a skripty napriklad v ``~/docker/nightscout/``
 
-0. Alternativně je možno vytvořit kontejner cadvisor, který slouží k sledování spotřeby kontejnerů. Má ale vlastní spotřebu
-   prostředků. Je-li VPS low-cost (1vCPU, 1GB RAM), nemusí to server utahnout. Není povinný 
+*Alternativně je možno vytvořit kontejner cadvisor, který slouží k sledování spotřeby kontejnerů. Má ale vlastní spotřebu
+   prostředků. Je-li VPS low-cost (1vCPU, 1GB RAM), nemusí to server utahnout. Není povinný *
 
-1. Vytvořit svoji konfiguraci editací šablony předpisu pro docker-compose (nightscout.yml). Šablony mám pro každý nightscout.
+## Vytvořit svoji konfiguraci editací šablony předpisu pro docker-compose (nightscout.yml). Šablony mám pro každý nightscout.
 Je nutné změnit:
 * první řádek: jméno předpisu
 * image: podle jména obrazu serveru, ktery jsme vytvořili dříve
@@ -43,7 +44,7 @@ Je nutné změnit:
 * ports: 1337:1337 (každý kontejner musí mít unikátní - tzn. další třeba 1338:1338)
 
 
-2. vytvoření kontejneru
+## vytvoření kontejneru
 ```
 docker-compose -f {soubor s předpisem} -p {jmeno kontejneru} up -d
 ```
@@ -53,7 +54,7 @@ např.
 ```
 docker-compose -f ./nightscout-pepicek.yml -p ns_pepicek up -d
 ```
-3. kontrola zda běží:
+## kontrola zda běží:
 ```
 root@nightscout:~# docker ps
 CONTAINER ID   IMAGE                                      COMMAND                  CREATED         STATUS                PORTS                        NAMES
