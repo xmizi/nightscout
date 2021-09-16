@@ -9,7 +9,7 @@
   
 3. **Konfigurace**
 
-* nginx.conf - hlavní konfigurace nginxu. Jediná úprava oproti defaultnímu jsou websockety. Přes ně komunikuje klient (například AAPS). Každá instance nightscoutu vyžaduje vlastní konfgiraci websocketu. Základní je pro port 1337. Další se vytvří podle nastavených portů. Samozřejmě je třeba změnit jméno
+* Hlavní konfigurace = soubor ```nginx.conf```. Jediná úprava oproti defaultnímu jsou websockety. Přes ně komunikuje klient (například AAPS). Každá instance nightscoutu vyžaduje vlastní konfgiraci websocketu. Základní je pro port 1337. Další se vytvří podle nastavených portů. Samozřejmě je třeba změnit jméno
 
    Např. první:
    ```
@@ -26,3 +26,13 @@
   }
   ```
    atd.
+   
+* konfigurace virtuál ("nightscoutů"). Dobrá praxe je všechny soubory ukládat do ``/etc/nginx/sites-available``, a pro ty co jsou povolené udělat symlink do  ``/etc/nginx/sites-enabled``. Když budete chtít nějaký nightscout rychle zakázat, jednoduše smažete symlink, ale konfigurace v sites-avaiable zůstane.
+
+  ``00_default.conf`` = hlavní web. Uplatní se, když někdo zavolá přímo IP adresu serveru. Nastaveno je, že se vrátí chyba 403 "přístup zakázán"
+  
+  ``nightsccout.conf`` = konfigurace jednotlivých virtuálů. Pro každý nightscout je třeba udělat nový konfigurační soubor a upravit direktivy proxy_pass podle předchozího bodu (hlavní konfigurace - pojmenování websocketů)
+
+     * ``proxy_pass http://127.0.0.1:1337/`` v sekci ``location /`` 
+     * ``proxy_pass http://websocket-honzicek`` v sekci ``location /socket.io/``
+
