@@ -17,8 +17,8 @@
  3. **Doména**: pro přístup na nightscout je nutné [doménové jméno](https://www.forpsi.com/domain/). Obejdete se i bez registrace (a tudíž ročního opoplatku za její udržování). Máte-li známého který ji již vlastní, a umožní vám na server nasměrovat subdoménu (např ns-pepicek.mojedomena.cz). Jde o nastavení A záznamu v DNS na IP adresu serveru. 
 
 # Postup instalace a konfigurace
-V každé složce je:
-* konfigirační soubor, který je nutné upravit podle svého
+V každé složce (docker, mongo, nginx, system) je:
+* konfigurační soubor, který je nutné upravit podle svého
 * stručný postup co dělat
 
 # Zabezpečení serveru
