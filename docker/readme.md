@@ -6,17 +6,23 @@ ale lze sestavit na jakémkoliv jiném počítači, kam si docker nainstalujeme.
 ## A. na počítači
 
 1. vytvořit obraz NS serveru (Dockerfile je konfigurace, která je v aktuální adresáři), 
-   ``docker build --no-cache -t nightscout_1422_image . -f ./Dockerfile``
+   ```
+   docker build --no-cache -t nightscout_1422_image . -f ./Dockerfile
+   ```
    * dobrá praxe je pojmneovat obraz podle verze Nigtscoutu
    * --no-cache zajistí, že se obraz vytvoří "nanovo, bez ohledu na předchozí akce"
 
 2. vyexportovat hotový obraz z úložiště (defaultně je v lokálním docker úložišti), a rovnou ho zkomprimovat. 
-   ``docker save nightscout_1422_image | gzip -9 >  nightscout_1422_image.tgz``
+   ```
+   docker save nightscout_1422_image | gzip -9 >  nightscout_1422_image.tgz
+   ```
 
 3. zkopírovat vytvořeného obrazu na server (WinSCP apod....)
 
 4. Na serveru obraz naimporovat do úložiště, aby ho docker mohl využít. Pokud jsme ho nahráli do /root/docker/images/, pak je to takto:
-   ``docker load -i /root/docker/images/nightscout_1422_image.tgz``
+   ```
+   docker load -i /root/docker/images/nightscout_1422_image.tgz
+   ```
 
 5. Hotovo, můžeme přejít na vytvoření kontejneru
 
