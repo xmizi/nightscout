@@ -22,4 +22,4 @@ V každé složce je konfigirační soubor, který je nutné upravit podle svéh
 
 
 # License
-[Creative Commons: Uveďte původ-Neužívejte komerčně 4.0 Mezinárodní License](http://creativecommons.org/licenses/by-nc/4.0/)
+[![Creative Commons: Uveďte původ-Neužívejte komerčně 4.0 Mezinárodní License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png "Creative Commons: Uveďte původ-Neužívejte komerčně 4.0 Mezinárodní License")](http://creativecommons.org/licenses/by-nc/4.0/)
