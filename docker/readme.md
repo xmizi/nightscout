@@ -5,7 +5,7 @@ ale lze sestavit na jakémkoliv jiném počítači, kam si docker nainstalujeme.
 
 ## A. na počítači
 
-1. vytvořit obraz NS serveru (Dockerfile je konfigurace, která je v aktuální adresáři), 
+1. vytvořit obraz NS serveru (``dockerfile`` je konfigurace, která je v aktuálním adresáři), 
    ```
    docker build --no-cache -t nightscout_1422_image . -f ./dockerfile
    ```
