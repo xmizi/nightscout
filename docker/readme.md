@@ -9,6 +9,7 @@ ale lze sestavit na jakémkoliv jiném počítači, kam si docker nainstalujeme.
    NS naklonujeme do libovolného adresáře 
    ```
    git clone https://github.com/nightscout/cgm-remote-monitor.git
+   cd cgm-remote-monitor
    docker build --no-cache -t nightscout_1422_image . -f ./Dockerfile
    ```
    * dobrá praxe je pojmneovat obraz podle verze Nigtscoutu
