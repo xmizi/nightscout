@@ -5,9 +5,11 @@ ale lze sestavit na jakémkoliv jiném počítači, kam si docker nainstalujeme.
 
 ## A. na počítači
 
-1. vytvořit obraz NS serveru (``dockerfile`` je konfigurace, která je v aktuálním adresáři), 
+1. vytvořit obraz NS serveru (použije se Dockerfile přímo z naklonovaného projektu)
+   NS naklonujeme do libovolného adresáře 
    ```
-   docker build --no-cache -t nightscout_1422_image . -f ./dockerfile
+   git clone https://github.com/nightscout/cgm-remote-monitor.git
+   docker build --no-cache -t nightscout_1422_image . -f ./Dockerfile
    ```
    * dobrá praxe je pojmneovat obraz podle verze Nigtscoutu
    * --no-cache zajistí, že se obraz vytvoří "nanovo, bez ohledu na předchozí akce"
