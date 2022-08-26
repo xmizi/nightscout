@@ -31,7 +31,7 @@
 
   ``00_default.conf`` = hlavní web. Uplatní se, když někdo zavolá přímo IP adresu serveru. Nastaveno je, že se vrátí chyba 403 "přístup zakázán"
   
-  ``nightsccout.conf`` = konfigurace jednotlivých virtuálů. Pro každý nightscout je třeba udělat nový konfigurační soubor a upravit direktivy proxy_pass podle předchozího bodu (hlavní konfigurace - pojmenování websocketů)
+  ``nightscout.conf`` = konfigurace jednotlivých virtuálů. Pro každý nightscout je třeba udělat nový konfigurační soubor a upravit direktivy proxy_pass podle předchozího bodu (hlavní konfigurace - pojmenování websocketů)
 
      * ``proxy_pass http://127.0.0.1:1337/`` v sekci ``location /`` 
      * ``proxy_pass http://websocket-honzicek`` v sekci ``location /socket.io/``
