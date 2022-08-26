@@ -7,24 +7,25 @@ ale lze sestavit na jakémkoliv jiném počítači, kam si docker nainstalujeme.
 
 1. vytvořit obraz NS serveru (použije se Dockerfile přímo z naklonovaného projektu)
    NS naklonujeme do libovolného adresáře 
+   (pozn: názvy obrazů volím kvůli přehledu podle aktuální verze Nightscoutu)
    ```
    git clone https://github.com/nightscout/cgm-remote-monitor.git
    cd cgm-remote-monitor
-   docker build --no-cache -t nightscout_1422_image . -f ./Dockerfile
+   docker build --no-cache -t nightscout_1425_image . -f ./Dockerfile
    ```
    * dobrá praxe je pojmneovat obraz podle verze Nigtscoutu
    * --no-cache zajistí, že se obraz vytvoří "nanovo, bez ohledu na předchozí akce"
 
 2. vyexportovat hotový obraz z úložiště (defaultně je v lokálním docker úložišti), a rovnou ho zkomprimovat. 
    ```
-   docker save nightscout_1422_image | gzip -9 >  nightscout_1422_image.tgz
+   docker save nightscout_1425_image | gzip -9 >  nightscout_1425_image.tgz
    ```
 
 3. zkopírovat vytvořeného obrazu na server (WinSCP apod....)
 
 4. Na serveru obraz naimporovat do úložiště, aby ho docker mohl využít. Pokud jsme ho nahráli do /root/docker/images/, pak je to takto:
    ```
-   docker load -i /root/docker/images/nightscout_1422_image.tgz
+   docker load -i /root/docker/images/nightscout_1425_image.tgz
    ```
 
 5. Hotovo, můžeme přejít na vytvoření kontejneru
@@ -67,8 +68,8 @@ docker-compose -f ./nightscout-pepicek.yml -p ns_pepicek up -d
 ```
 root@nightscout:~# docker ps
 CONTAINER ID   IMAGE                                      COMMAND                  CREATED         STATUS                PORTS                        NAMES
-fc7ec2a4f3fe   nightscout_1422_image:latest               "docker-entrypoint.s…"   6 months ago    Up 7 days             0.0.0.0:1337->1337/tcp       ns_pepicek
-d64e6cc59faa   nightscout_1422_image:latest               "docker-entrypoint.s…"   6 months ago    Up 7 days             0.0.0.0:1338->1338/tcp       ns_honzicek
+fc7ec2a4f3fe   nightscout_1425_image:latest               "docker-entrypoint.s…"   6 months ago    Up 7 days             0.0.0.0:1337->1337/tcp       ns_pepicek
+d64e6cc59faa   nightscout_1425_image:latest               "docker-entrypoint.s…"   6 months ago    Up 7 days             0.0.0.0:1338->1338/tcp       ns_honzicek
 4c2e9836edee   gcr.io/google-containers/cadvisor:latest   "/usr/bin/cadvisor -…"   14 months ago   Up 7 days (healthy)   0.0.0.0:8080->8080/tcp       cadvisor
 ```
 kontejnery spuštěné, běží.
