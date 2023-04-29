@@ -7,7 +7,7 @@
 * Přístup do kontejneru je zajišován nginxem, SSL certifikáty pro https LetsEncrypt
 
 # Požadavky
-1. **Server**: pro provoz 2-3 NS instancí postačuje virtuální server 1vCPU, 1 GB RAM. Disk alespoň 20 GB (záleží, jak se promazávají data v mongodb). Aktuálně provozuji 2 Nightscout instance + monitoring na VPS 1vCPU/1GB RAM/20GB u [Forpsi](https://www.forpsi.com) za 80 Kč bez jakýchkoliv problémů s výkonem (do aktivního nightscoutu se zapisuje přes AAPS, takže zápisy jsou četnější, než jen od senzoru - Dexcom, Libre). Ten ale v nabídce bohužel není.  Alternativa je [VPS O1I1](https://www.forpsicloud.cz/vps.aspx) za 60 Kč/měsíc (stav duben2023). Ale pouze sIPv6.  
+1. **Server**: pro provoz 2-3 NS instancí postačuje virtuální server 1vCPU, 1 GB RAM. Disk alespoň 20 GB (záleží, jak se promazávají data v mongodb). Aktuálně provozuji 2 Nightscout instance + monitoring na VPS 1vCPU/1GB RAM/20GB u [Forpsi](https://www.forpsi.com) za 80 Kč bez jakýchkoliv problémů s výkonem (do aktivního nightscoutu se zapisuje přes AAPS, takže zápisy jsou četnější, než jen od senzoru - Dexcom, Libre). Ten ale v nabídce bohužel není.  Alternativa je [VPS O1I1](https://www.forpsicloud.cz/vps.aspx) za 60 Kč/měsíc (stav duben2023). Ale pouze s IPv6.
 2. **Programové vybavení**
    * distribuce Debian (lze použít ubuntu, centos... - tady jsou ale trochu jiné cestu a způsob instalace)
    * Docker
