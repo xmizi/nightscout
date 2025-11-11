@@ -36,3 +36,7 @@ Pro základní vytvoření jediného Nightsout serveru necháme stranou šablony
 * traefik
 * mongodb
 * nightscout
+
+Předpis pro Stack jsou soubory traefik.yaml, mongodb.yaml, nightscout.yaml. Jejich obsah se vkopíruje do příslušné části formuláře po kliknutí na "Add stack". Sazozřejmě jméno si zvolíte tak, aby odpovídalo tomu, co vytváříte (traefik + mongodb + nightscout). Po kliknutí na tl. Deploy stack se kontejner vytvoří. 
+
+POZOR: nekopírujte slepě obsah souborů. Předpisy vyžadují nastavení proměnných - email pro vytvoření certifikátu, API klíč pro Nightscout apod. Takže věnujte pozornost každému řádku předpisu..... 
