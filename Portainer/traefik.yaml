@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  traefik:
+    image: traefik:v3.4
+    container_name: traefik
+    restart: always
+    command:
+      - "--api.dashboard=true"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entryPoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entryPoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entryPoints.web.http.redirections.entryPoint.permanent=true"
+      - "--serverstransport.insecureskipverify=true"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesResolvers.letsencrypt.acme.email=XXX@YYY.ZZ"
+      - "--certificatesResolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesResolvers.letsencrypt.acme.httpChallenge.entryPoint=web"
+      - "--providers.file.directory=/etc/traefik/dynamic"
+      - "--providers.file.watch=true"
+      #geoip
+      - "--experimental.plugins.traefik-plugin-geoblock.modulename=github.com/nscuro/traefik-plugin-geoblock"
+      - "--experimental.plugins.traefik-plugin-geoblock.version=v0.14.0"
+      #logovani
+      - "--accesslog=true"
+      - "--accesslog.filepath=/var/log/traefik-access.log"
+      - "--accesslog.format=CLF"
+      - "--accesslog.filters.statuscodes=200-500"
+      
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/opt/docker/traefik/letsencrypt:/letsencrypt"
+      - "/opt/docker/traefik/dynamic:/etc/traefik/dynamic:ro"
+      #geoip
+      - "/opt/docker/traefik/geofilter:/var/lib/geofilter:ro"
+      - "/opt/docker/traefik/log:/var/log"
+
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
