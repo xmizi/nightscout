@@ -7,3 +7,5 @@ db.createUser({
   pwd: "MOJE-TAJNE-HESLO-PRO-DB",
   roles: [{ role: "readWrite", db: "nightscoutdb" }]
 });
+
+// nahrajte do /opt/docker/add-user.js
