@@ -1,4 +1,5 @@
 services:
+
   nightscout:
     image: nightscout/cgm-remote-monitor
     container_name: nightscout
@@ -19,7 +20,7 @@ services:
      - API_SECRET=XXXXXXXXXXXXXXXXXXXX
      - 'MONGO_CONNECTION=mongodb://XXXXXXXXXX:XXXXXXXXXX@mongodb:27017/nightscoutdb'     
      - INSECURE_USE_HTTP=true
-     - CUSTOM_TITLE=Lookin
+     - CUSTOM_TITLE=ChildrenName
      - PORT=1337
      - TIME_FORMAT=24
      - PUMP_FIELDS=reservoir%20battery%20clock%320status
@@ -28,7 +29,7 @@ services:
      - PUMP_WARN_RES=15
      - PUMP_URGENT_RES=5
      - THEME=colors
-     - LANGUAGE=cs
+     - LANGUAGE=en
      - BG_TARGET_BOTTOM=71
      - BG_LOW=51
      - BG_TARGET_TOP=182
@@ -64,11 +65,9 @@ services:
       - "traefik.http.routers.nightscout.tls=true"
       - "traefik.http.routers.nightscout.tls.certresolver=letsencrypt"
       - "traefik.http.services.nightscout.loadbalancer.server.port=1337"
-      #- "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      #- "traefik.http.routers.nightscout.middlewares=redirect-to-https"
-      - "traefik.http.routers.nightscout.middlewares=geoblock@file"
     networks:
       - web
+
 networks:
   web:
     external: true
