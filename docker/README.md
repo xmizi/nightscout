@@ -43,4 +43,4 @@ POZOR: nekopírujte slepě obsah souborů. Předpisy vyžadují nastavení prom�
 
 Proměnné jako je název mongo databáze pro NIghtscout, přihlašovací jméno a heslo MUSÍ být předpisech mongodb.yaml + nightscout.yaml stejné. 
 
-Traefik zajišťuje připojení z Internetu. Pro vystavení certifikátu nezapomeňte zadat funkční email do ```--certificatesResolvers.letsencrypt.acme.email=mail@domain.tld"```
+Traefik je webový server, který zajišťuje připojení z Internetu. Pro vystavení certifikátu nezapomeňte zadat funkční email do ```--certificatesResolvers.letsencrypt.acme.email=mail@domain.tld"```
