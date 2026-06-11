@@ -40,3 +40,7 @@ Pro základní vytvoření jediného Nightsout serveru necháme stranou šablony
 Předpis pro Stack jsou soubory traefik.yaml, mongodb.yaml, nightscout.yaml. Jejich obsah se vkopíruje do příslušné části formuláře po kliknutí na "Add stack". Sazozřejmě jméno si zvolíte tak, aby odpovídalo tomu, co vytváříte (traefik + mongodb + nightscout). Po kliknutí na tl. Deploy stack se kontejner vytvoří. 
 
 POZOR: nekopírujte slepě obsah souborů. Předpisy vyžadují nastavení proměnných - email pro vytvoření certifikátu, API klíč pro Nightscout apod. Takže věnujte pozornost každému řádku předpisu..... 
+
+Proměnné jako je název mongo databáze pro NIghtscout, přihlašovací jméno a heslo MUSÍ být předpisech mongodb.yaml + nightscout.yaml stejné. 
+
+Traefik zajišťuje připojení z Internetu. Pro vystavení certifikátu nezapomeňte zadat funkční email do ```--certificatesResolvers.letsencrypt.acme.email=mail@domain.tld"```
