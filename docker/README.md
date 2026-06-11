@@ -31,6 +31,7 @@ V levém menu Dashboardu najdeme vše co potřebujeme:
 * Stacks (skupina služeb běžících v kontejneru)
 * Containers (vlastní kontejnery)
 * Templates (šablony, na základě kterých můžete vytvářet nové Nightscout servery)
+* Networks: před vytvářením kontejnerů je nutné vytvořit network se jménem web - všechny kontejnery přes ní komunikují. Není třeba žádná speciální nastavení: poze jméno '''web''' a Driver '''bridge'''. Zbytek - IP apod si Portainer přiřadí sám. 
 
 Pro základní vytvoření jediného Nightsout serveru necháme stranou šablony a rovnou vytvoříme Stack. 
 * traefik
