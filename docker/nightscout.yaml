@@ -18,7 +18,7 @@ services:
      - 'ENABLE=careportal%20iob%20bwp%20ar2%20sage%20iage%20food%20profile%20timeago%20upbat%20direction%20delta%20rawbg%20cob%20boluscalc%20cage%20basal%20bgi%20pump%20openaps%20bage%20cors'
      - DEVICESTATUS_ADVANCED=true
      - API_SECRET=XXXXXXXXXXXXXXXXXXXX
-     - 'MONGO_CONNECTION=mongodb://XXXXXXXXXX:XXXXXXXXXX@mongodb:27017/nightscoutdb'     
+     - 'MONGO_CONNECTION=mongodb://nsuser:MOJE-TAJNE-HESLO-PRO-DB@mongodb:27017/nightscoutdb'     
      - INSECURE_USE_HTTP=true
      - CUSTOM_TITLE=ChildrenName
      - PORT=1337
