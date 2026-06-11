@@ -1,7 +1,7 @@
 db = db.getSiblingDB("admin");
 db.auth("admin", "XXXXXXXXX");
 
-db = db.getSiblingDB("nightscoutdb1");
+db = db.getSiblingDB("nightscoutdb");
 db.createUser({
   user: "nsuser",
   pwd: "MOJE-TAJNE-HESLO-PRO-DB",
@@ -9,3 +9,4 @@ db.createUser({
 });
 
 // nahrajte do /opt/docker/add-user.js
+// heslo asmin musi byt stejne, jako jste zvolili v predpisu mongodb.yaml
