@@ -21,7 +21,7 @@ Ve složkách v tomto návodu (docker, system, mongodb) najdete konfigurační s
 Instalace probíhá v těchto krocích:
 1. **Nastavení systému**: aktualizace, přidání repozitáře pro doicker a instalace dockeru →→→ složka system
 2. **Instalace Portainer**: grafické prostředí pro správu kontejnerů (nightscout, mongpo, traefik) →→→ složka systém
-3. **Vytvoření kontejnerů***: podle předpisu použitelného v Portaineru: soubory ```mongodb.yaml```, ```nightscout.yaml```, ```traefik.yaml```. Postup je v README.mg ve složce docker.
+3. **Vytvoření kontejnerů***: podle předpisu použitelného v Portaineru: soubory [mongodb.yaml](docker/mongodb.yaml), ```nightscout.yaml```, ```traefik.yaml```. Postup je v README.mg ve složce docker.
 4. **Vytvoření mongo databáze**: postup ve složce mongodb
 
 # Zabezpečení serveru
