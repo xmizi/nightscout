@@ -3,7 +3,7 @@
 Jde o grafické rozhraní (GUI) pro správu kontejnerů v dockeru (samozřejmě nejen pro Docker, ale podrobné využítí není náplní tohoto návodu). Podrobné info najdete na domovské stránce projektu https://www.portainer.io. Pro nekomerční použítí si můžete nainstalovat 2 verze Portaineru
 
 ## Verze
-1. *Community Edition:* základní (ale funkční) verze. nevyžaduje žádné licencční klíče
+1. *Community Edition:* základní (ale funkční) verze. nevyžaduje žádné licencční klíče, poskytuje jen základní funkčnost (není tak jenodduchá aktualizace kontejnerů)
 2. *Bussiness Edition:* rozšířené funkce (šablony, snadné aktualizace kontejnerů apod). Vyžafuje licenční klíč, ale pokud máte jen 3 nody (rozuměj 3 oddělené servery s Docker kontejnery - což v námi popisovaném případě nebude), můžete zístal licenci úplně zdarma. Pouze vyplníte fomrulář na požadavek licence: https://www.portainer.io/take-3. Na email vyplněný ve formuláři přijde obratem licecnční klíč. Ten použijete k odemčení prémiových funkcí. Klíč má platnost 1 rok. Poté přijde infomrace o jeho expiraci. V emailu je ale odkaz na prodloužení (https://www.portainer.io/renew). Opět free.
 
 ## Instalace 
@@ -38,7 +38,7 @@ Pro základní vytvoření jediného Nightsout serveru necháme stranou šablony
 * mongodb
 * nightscout
 
-Předpis pro Stack jsou soubory traefik.yaml, mongodb.yaml, nightscout.yaml. Jejich obsah se vkopíruje do příslušné části formuláře po kliknutí na "Add stack". Sazozřejmě jméno si zvolíte tak, aby odpovídalo tomu, co vytváříte (traefik + mongodb + nightscout). Po kliknutí na tl. Deploy stack se kontejner vytvoří. 
+Předpis pro Stack jsou soubory [traefik.yaml](docker/traefik.yaml), [mongodb.yaml](docker/mongodb.yaml), [nightscout.yaml](docker/nightscout.yaml). Jejich obsah se vkopíruje do příslušné části formuláře po kliknutí na "Add stack". Sazozřejmě jméno si zvolíte tak, aby odpovídalo tomu, co vytváříte (traefik + mongodb + nightscout). Po kliknutí na tl. Deploy stack se kontejner vytvoří. 
 
 POZOR: nekopírujte slepě obsah souborů. Předpisy vyžadují nastavení proměnných - email pro vytvoření certifikátu, API klíč pro Nightscout apod. Takže věnujte pozornost každému řádku předpisu..... 
 
