@@ -9,9 +9,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - /opt/docker/mongodb/db:/data/db
-      - /opt/docker/mongodb/logs:/root/logs
-      - /opt/docker/mongodb/conf/mongod.conf:/etc/mongod.conf
+      - '/opt/docker/mongodb/db:/data/db:cached'
     entrypoint: ["mongod","--config","/etc/mongod.conf"]      
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
