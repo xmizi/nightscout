@@ -58,6 +58,18 @@ Architectures: $(dpkg --print-architecture)
 Signed-By: /etc/apt/keyrings/docker.asc
 EOF
 
+        $SUDO mkdir -p /opt/docker/mongodb
+        $SUDO tee /opt/docker/add-mongo-user.js > /dev/null <<EOF
+db = db.getSiblingDB("admin");
+db.auth("admin", "XXXXXXXXX");
+
+db = db.getSiblingDB("nightscoutdb");
+db.createUser({
+  user: "nsuser",
+  pwd: "MOJE-TAJNE-HESLO-PRO-DB",
+  roles: [{ role: "readWrite", db: "nightscoutdb" }]
+});
+EOF
         $SUDO apt update
         $SUDO apt -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
         $SUDO systemctl enable --now docker
