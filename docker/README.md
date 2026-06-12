@@ -7,12 +7,7 @@ Jde o grafické rozhraní (GUI) pro správu kontejnerů v dockeru (samozřejmě 
 2. *Bussiness Edition:* rozšířené funkce (šablony, snadné aktualizace kontejnerů apod). Vyžafuje licenční klíč, ale pokud máte jen 3 nody (rozuměj 3 oddělené servery s Docker kontejnery - což v námi popisovaném případě nebude), můžete zístal licenci úplně zdarma. Pouze vyplníte fomrulář na požadavek licence: https://www.portainer.io/take-3. Na email vyplněný ve formuláři přijde obratem licecnční klíč. Ten použijete k odemčení prémiových funkcí. Klíč má platnost 1 rok. Poté přijde infomrace o jeho expiraci. V emailu je ale odkaz na prodloužení (https://www.portainer.io/renew). Opět free.
 
 ## Instalace 
-Po přohlášení na server přes SSH spustíme jako administrátor (root) příkazy: 
-```
-docker volume create portainer_data
-docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ee:lts
-```
-
+Portainer je vytvořen spuštěním instalačního skriptu. Pokud nezadáte licencční klíč, poběží v "community edici"
 
 ## Přihlášení
 https://IP_ADRESA_SERVERU:9443
