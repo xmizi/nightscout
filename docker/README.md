@@ -28,10 +28,10 @@ Po přihlášení se zobrazí průvodce, který nabídne vytvoření Enviroment 
 ## Vytváření kontejnerů
 
 V levém menu Dashboardu najdeme vše co potřebujeme: 
-* Stacks (skupina služeb běžících v kontejneru)
-* Containers (vlastní kontejnery)
-* Templates (šablony, na základě kterých můžete vytvářet nové Nightscout servery)
-* Networks: před vytvářením kontejnerů je nutné vytvořit network se jménem web - všechny kontejnery přes ní komunikují. Není třeba žádná speciální nastavení: poze jméno '''web''' a Driver '''bridge'''. Zbytek - IP apod si Portainer přiřadí sám. 
+* **Stacks** (skupina služeb běžících v kontejneru)
+* **Containers** (vlastní kontejnery)
+* **Templates** (šablony, na základě kterých můžete vytvářet nové Nightscout servery)
+* **Networks**: před vytvářením kontejnerů je nutné vytvořit network se jménem web - všechny kontejnery přes ní komunikují. Není třeba žádná speciální nastavení: poze jméno '''web''' a Driver '''bridge'''. Zbytek - IP apod si Portainer přiřadí sám. 
 
 Pro základní vytvoření jediného Nightsout serveru necháme stranou šablony a rovnou vytvoříme Stack. 
 * traefik
@@ -40,8 +40,10 @@ Pro základní vytvoření jediného Nightsout serveru necháme stranou šablony
 
 Předpis pro Stack jsou soubory [traefik.yaml](traefik.yaml), [mongodb.yaml](dmongodb.yaml), [nightscout.yaml](nightscout.yaml). Jejich obsah se vkopíruje do příslušné části formuláře po kliknutí na "Add stack". Sazozřejmě jméno si zvolíte tak, aby odpovídalo tomu, co vytváříte (traefik + mongodb + nightscout). Po kliknutí na tl. Deploy stack se kontejner vytvoří. 
 
-POZOR: nekopírujte slepě obsah souborů. Předpisy vyžadují nastavení proměnných - email pro vytvoření certifikátu, API klíč pro Nightscout apod. Takže věnujte pozornost každému řádku předpisu..... 
+**POZOR**: nekopírujte slepě obsah souborů. Předpisy vyžadují nastavení proměnných - email pro vytvoření certifikátu, API klíč pro Nightscout apod. Takže věnujte pozornost každému řádku předpisu..... 
 
-Proměnné jako je název mongo databáze pro NIghtscout, přihlašovací jméno a heslo MUSÍ být předpisech mongodb.yaml + nightscout.yaml stejné. 
+Proměnné jako je název mongo databáze pro Nightscout, přihlašovací jméno a heslo MUSÍ být předpisech mongodb.yaml + nightscout.yaml stejné. 
+
+Nezapomeňte zadat Nightscout API_SECRET, alespoň 12 náhodných znaků (nedávejte jméno a příjmení, diakritiku, mezery)
 
 Traefik je webový server, který zajišťuje připojení z Internetu. Pro vystavení certifikátu nezapomeňte zadat funkční email do ```--certificatesResolvers.letsencrypt.acme.email=mail@domain.tld"```
