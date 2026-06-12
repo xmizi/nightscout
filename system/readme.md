@@ -2,7 +2,7 @@
 Nebudu zde uvádět konfiguraci a nastavení krok za krokem. Základní instalace po objednání dostačuje. VPS Protože jde o server ve vlastní správě, měl by člověk něco málo znát. 
 Takže základy typu instace balíčků, editace souborů, restart služeb, kde najít logy nebudu popisovat. Kromě nastavení firewallu (kvůli omezení přístupu k systému z důvěryhodných IP adres) není třeba žádné větší instalace. Doporučuji nastavit automatické upgrady systému - v Debianu jde o unattended-upgrades
 
-Stačí doinstalovat docker, například podle [návodu][https://docs.docker.com/engine/install/debian/]. 
+Stačí doinstalovat docker, například podle [návodu](https://docs.docker.com/engine/install/debian/). 
 Nejdřív se nainstalují potřebné balíky, gpg klíč a nakonec repozitář. Před a po akci se provede aktualizace seznamu balíčků
 
 ```
