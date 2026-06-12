@@ -25,7 +25,8 @@ Instalace probíhá v těchto krocích:
 
 # Zabezpečení serveru
 * Nightscout má své vlastní ochrany (API_KEY + přístupové tokeny)
-* Zabezpečení serveru (firewall) není ovsahem tohoto návodu 
+* Zabezpečení serveru (firewall) není osahem tohoto návodu, ale důrazně doporučuji omezit přístup do Portaineru a SSH (minimálně přihlašování pouze SSH klíčem a ne heslem).
+* Pravideloné aktualzaice zajišťují vyšší bezpečnost
 
 # License
 [![Creative Commons: Uveďte původ-Neužívejte komerčně 4.0 Mezinárodní License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png "Creative Commons: Uveďte původ-Neužívejte komerčně 4.0 Mezinárodní License")](http://creativecommons.org/licenses/by-nc/4.0/)
