@@ -16,9 +16,13 @@
  3. **Doména**: pro přístup na nightscout je nutné [doménové jméno](https://www.forpsi.com/domain/). Obejdete se i bez registrace (a tudíž ročního opoplatku za její udržování). Máte-li známého který ji již vlastní, a umožní vám na server nasměrovat subdoménu (např ns-pepicek.mojedomena.cz). Jde o nastavení A záznamu v DNS na IP adresu serveru. 
 
 # Postup instalace a konfigurace
-V každé složce v otmto návodu (docker, system, mongodb) je:
-* konfigurační soubor, který je nutné upravit podle svého
-* stručný postup co dělat
+Ve složkách v tomto návodu (docker, system, mongodb) najdete konfigurační soubory nebo pomocné skripty (je nutné upravit podle svého), stručný postup co dělat
+
+Instalace probíhá v těchto krocích:
+1. **Nastavení systému**: aktualizace, přidání repozitáře pro doicker a instalace dockeru →→→ složka system
+2. **Instalace Portainer**: grafické prostředí pro správu kontejnerů (nightscout, mongpo, traefik) →→→ složka systém
+3. **Vytvoření kontejnerů***: podle předpisu použitelného v Portaineru: soubory ```mongodb.yaml```, ```nightscout.yaml```, ```traefik.yaml```. Postup je v README.mg ve složce docker.
+4. **Vytvoření mongo databáze**: postup ve složce mongodb
 
 # Zabezpečení serveru
 * Nightscout má své vlastní ochrany (API_KEY + přístupové tokeny)
