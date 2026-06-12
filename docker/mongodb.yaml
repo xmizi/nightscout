@@ -9,8 +9,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - '/opt/docker/mongodb/db:/data/db:cached'
-    entrypoint: ["mongod","--config","/etc/mongod.conf"]      
+      - '/opt/docker/mongodb/db:/data/db:cached' 
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: XXXXXXXXX
