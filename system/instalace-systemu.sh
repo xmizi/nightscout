@@ -63,7 +63,7 @@ EOF
         $SUDO systemctl enable --now docker
 
         echo "Instaluji Portainer"
-
+        $SUDO docker network create --driver bridge web
         $SUDO docker volume create portainer_data
 
         $SUDO docker run -d \
