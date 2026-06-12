@@ -17,6 +17,6 @@ MongoDB běží v docker kontejneru
 Pak se spustí následující příkaz: 
 
 ```
-cat /opt/docker/add-user.js  | docker exec -i mongodb mongosh
+cat /opt/docker/add-mongo-user.js  | docker exec -i mongodb mongosh
 ```
 Ten vytvoří uživatele.
