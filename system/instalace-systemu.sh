@@ -100,7 +100,6 @@ EOF
         echo "Poznamka:"
         echo "- Port 9443 = doporucene HTTPS rozhrani Portaineru"
         echo "- Port 8000 = edge agent tunnel"
-        echo "- Port 9000 = legacy HTTP pristup"
         ;;
     *)
         echo "OK, koncime....."
