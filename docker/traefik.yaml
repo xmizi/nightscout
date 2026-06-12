@@ -22,8 +22,6 @@ services:
       - "--certificatesResolvers.letsencrypt.acme.email=mail@domain.tld"
       - "--certificatesResolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
       - "--certificatesResolvers.letsencrypt.acme.httpChallenge.entryPoint=web"
-      - "--providers.file.directory=/etc/traefik/dynamic"
-      - "--providers.file.watch=true"
       #logovani
       - "--accesslog=true"
       - "--accesslog.filepath=/var/log/traefik-access.log"
