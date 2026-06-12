@@ -5,7 +5,7 @@
 * Nightscout instance jsou provozované v Docker kontejnerech
 * Databáze MongoDB je v dockeru
 * Řízení přístupu do kontejneru je zajišováno přes proxy traefik
-* volitelně je možné spravovat všechny docker kontejnery přes grafické rozhraní Portainer (pro soukromé použítí je kdispozici i bussiness verze)
+* Instalace a správa kontejnerů je přes grafické rozhraní Portainer (pro soukromé použítí je k dispozici i bussiness verze)
   
 # Požadavky
 1. **Server**: pro provoz 2-3 NS instancí postačuje virtuální server 1vCPU, 1 GB RAM. Disk alespoň 20 GB (záleží, jak se promazávají data v mongodb). Aktuálně provozuji 2 Nightscout instance + monitoring na VPS 1vCPU/1GB RAM/20GB u [Forpsi](https://www.forpsicloud.cz/vps.aspx) varianta VPS O1I1 s IPv4 za 62 Kč (stav 06.2026) bez jakýchkoliv problémů s výkonem (do aktivního nightscoutu se zapisuje přes AAPS, takže zápisy jsou četnější, než jen od senzoru - Dexcom, Libre).
