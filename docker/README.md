@@ -30,7 +30,7 @@ V levém menu Dashboardu najdeme vše co potřebujeme:
 
 Pro základní vytvoření jediného Nightsout serveru necháme stranou šablony a rovnou vytvoříme Stack. 
 * traefik
-* mongodb
+* mongodb (vytvořený kontejner pojmenujte mongodb - toto jméno je totiž i v konfigiraci Nightscoutu)
 * nightscout
 
 Předpis pro Stack jsou soubory [traefik.yaml](traefik.yaml), [mongodb.yaml](mongodb.yaml), [nightscout.yaml](nightscout.yaml). Jejich obsah se vkopíruje do příslušné části formuláře po kliknutí na "Add stack". Sazozřejmě jméno si zvolíte tak, aby odpovídalo tomu, co vytváříte (traefik + mongodb + nightscout). Po kliknutí na tl. Deploy stack se kontejner vytvoří. 
