@@ -13,13 +13,13 @@
    * distribuce Debian (lze použít ubuntu, centos... - tady jsou ale trochu jiné cestu a způsob instalace)
    * Docker
 
- 3. **Doména**: pro přístup na nightscout je nutné [doménové jméno](https://www.forpsi.com/domain/). Obejdete se i bez registrace (a tudíž ročního opoplatku za její udržování). Máte-li známého který ji již vlastní, a umožní vám na server nasměrovat subdoménu (např ns-pepicek.mojedomena.cz). Jde o nastavení A záznamu v DNS na IP adresu serveru. 
+ 3. **Doména**: pro přístup na nightscout je nutné [doménové jméno](https://www.forpsi.com/domain/). Obejdete se ale i bez registrace (a tudíž ročního poplatku za její udržování). Stačí mít kamaráda (kolegu) který má vlastní doménu a umožní vám na server nasměrovat subdoménu (např ns-pepicek.mojedomena.cz). Jde o nastavení A záznamu v DNS na IP adresu serveru. 
 
 # Postup instalace a konfigurace
 Ve složkách v tomto návodu (docker, system, mongodb) najdete konfigurační soubory nebo pomocné skripty (je nutné upravit podle svého), stručný postup co dělat
 
 Instalace probíhá v těchto krocích:
-1. **Nastavení systému**: ve složce [system](system) je připraven instalační skript
+1. **Nastavení systému**: ve složce [system](system) je připraven kompletní instalační skript
 2. **Vytvoření kontejnerů***: podle předpisu použitelného v Portaineru: soubory [mongodb.yaml](docker/mongodb.yaml), [nightscout.yaml](docker/nightscout.yaml), [traefik.yaml](docker/traefik.yaml). Postup je v [docker/README.md](docker/README.md)
 3. **Vytvoření mongo databáze**: postup ve složce mongodb
 
