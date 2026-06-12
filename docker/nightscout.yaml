@@ -1,7 +1,7 @@
 services:
 
   nightscout:
-    image: nightscout/cgm-remote-monitor
+    image: nightscout/cgm-remote-monitor:latest
     container_name: nightscout
     hostname: nightscout.moje.domena
     command: node lib/server/server.js
