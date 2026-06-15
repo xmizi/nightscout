@@ -10,10 +10,10 @@
 # Požadavky
 1. **Server**: pro provoz 2-3 NS instancí postačuje virtuální server 1vCPU, 1 GB RAM. Disk alespoň 20 GB (záleží, jak se promazávají data v mongodb). Aktuálně provozuji 2 Nightscout instance + monitoring na VPS 1vCPU/1GB RAM/20GB u [Forpsi](https://www.forpsicloud.cz/vps.aspx) varianta VPS O1I1 s IPv4 za 62 Kč (stav 06.2026) bez jakýchkoliv problémů s výkonem (do aktivního nightscoutu se zapisuje přes AAPS, takže zápisy jsou četnější, než jen od senzoru - Dexcom, Libre).
 2. **Programové vybavení**
-   * distribuce Debian (lze použít ubuntu, centos... - tady jsou ale trochu jiné cestu a způsob instalace)
+   * distribuce Debian (lze použít i ubuntu), Distribued založené na RedfHat (AlmaLinux, RockyLinux - tady jsou ale trochu jiné cesty a způsob instalace a nelze použít instalační skript)
    * Docker
 
- 3. **Doména**: pro přístup na nightscout je nutné [doménové jméno](https://www.forpsi.com/domain/). Obejdete se ale i bez registrace (a tudíž ročního poplatku za její udržování). Stačí mít kamaráda (kolegu) který má vlastní doménu a umožní vám na server nasměrovat subdoménu (např ns-pepicek.mojedomena.cz). Jde o nastavení A záznamu v DNS na IP adresu serveru. Před následujícícmi kromu MUSÍ být použitá dména nasměrována na váš server (jinak se při následujích krocích nevytvoří certifikát)
+ 3. **Doména**: pro přístup na nightscout je nutné [doménové jméno](https://www.forpsi.com/domain/). Obejdete se i bez její registrace (a tudíž ročního poplatku za její udržování). Stačí mít kamaráda (kolegu) který má vlastní doménu, a umožní vám na server nasměrovat subdoménu (např. ns-pepicek.mojedomena.cz). Jde o nastavení A záznamu v DNS na IP adresu serveru. **POZOR!! Před instalací už MUSÍ být dména nasměrována na váš server (jinak se nevystaví certifikát)**
 
 # Zabezpečení serveru
 * Nightscout má své vlastní ochrany (API_KEY + přístupové tokeny)
@@ -30,11 +30,12 @@ Připravil jsem instalační skript [instalace-systemu.sh](instalace-systemu.sh)
 
 ## Portainer a kontejnery
 
-Jde o grafické rozhraní (GUI) pro správu kontejnerů v dockeru (samozřejmě nejen pro Docker, ale podrobné využítí není náplní tohoto návodu). Podrobné info najdete na domovské stránce projektu https://www.portainer.io. Pro nekomerční použítí si můžete nainstalovat 2 verze Portaineru
+Jde o grafické rozhraní (GUI) pro správu kontejnerů v dockeru (samozřejmě nejen pro Docker, ale podrobné využítí není náplní tohoto návodu). Podrobné info najdete na domovské stránce projektu https://www.portainer.io.
 
 ### Verze
-1. *Community Edition:* základní (ale funkční) verze. nevyžaduje žádné licencční klíče, poskytuje jen základní funkčnost (není tak jenodduchá aktualizace kontejnerů)
-2. *Bussiness Edition:* rozšířené funkce (šablony, snadné aktualizace kontejnerů apod). Vyžafuje licenční klíč, ale pokud máte jen 3 nody (rozuměj 3 oddělené servery s Docker kontejnery - což v námi popisovaném případě nebude), můžete zístal licenci úplně zdarma. Pouze vyplníte fomrulář na požadavek licence: https://www.portainer.io/take-3. Na email vyplněný ve formuláři přijde obratem licecnční klíč. Ten použijete k odemčení prémiových funkcí. Klíč má platnost 1 rok. Poté přijde infomrace o jeho expiraci. V emailu je ale odkaz na prodloužení (https://www.portainer.io/renew). Opět free.
+Pro nekomerční použítí si můžete nainstalovat 2 verze Portaineru
+1. *Community Edition:* základní (ale funkční) verze. Nevyžaduje žádné licencční klíče, poskytuje jen základní funkčnost (není tak jenoduchá aktualizace kontejnerů)
+2. *Bussiness Edition:* rozšířené funkce (šablony, snadné aktualizace kontejnerů apod). Vyžafuje licenční klíč, ale pokud máte jen 3 nody (rozuměj 3 oddělené servery s Docker kontejnery - což v námi popisovaném případu nebude), můžete zístal licenci úplně zdarma. Pouze vyplníte formulář na požadavek licence: https://www.portainer.io/take-3. Na email vyplněný ve formuláři přijde obratem licecnční klíč. Ten použijete k odemčení prémiových funkcí. Klíč má platnost 1 rok. Poté přijde informace o jeho expiraci. V emailu je ale odkaz na prodloužení (https://www.portainer.io/renew). Opět free.
 
 Portainer je nainstalován v předchozím kroku spuštěním instalačního skriptu. Pokud nezadáte licencční klíč (vlevo nahoře je odkaz na Business edici), poběží v "community edici"
 
@@ -45,12 +46,15 @@ POZOR: Při instalaci se vytvoří certifikát podepsaný sám sebou (nedůvěry
 
 Na přihlašovací obrazovce vyplníáte heslo admina (doporučuji zvolit bezpečné heslo). Po přihlášení se zobrazí průvodce, který nabídne vytvoření Enviroment (prostředí, kde budeme instalovat své kontejnery - Nightscout, mongo, traefik a klidně i další). Nemusíme vytvářet nic nové - instalcí Portaineru se už jedno "lokální" připravilo. To nám bude stačit :). Takže klikneme na "Get started". Pak se připojíme k "local" prostředí (tlačítko "Live connect"). Dostaneme se na Dashboard. 
 
+#### Zabezpečení ####
+Protože je rozhraní Portaineru veřejně dostupné, je velmi důležité přístup zabezpečit volbou dostatečně dlouhého a "neuhádnutelného" hesla. Ještě lepší je omezit přihlášení pouze na důvěryhodné IP adresy za pomoci firewallu. Jde o port ```9443```. Konkrétní nastavení ale záleží na použitém firewallu, takže ho zde uvádět nebudu.
+
 #### Vytváření kontejnerů
 
 V levém menu Dashboardu najdeme vše co potřebujeme: 
-* **Stacks** (skupina služeb běžících v kontejneru)
-* **Containers** (vlastní kontejnery)
-* **Templates** (šablony, na základě kterých můžete vytvářet nové Nightscout servery - pouze Business edice)
+* **Stacks**": skupina služeb běžících v kontejneru
+* **Containers**: vlastní kontejnery
+* **Templates**: šablony, na základě kterých můžete vytvářet nové Nightscout servery. Jsou pouze v Business edici.
 
 Pro základní vytvoření jediného Nightsout serveru necháme stranou šablony a rovnou vytvoříme Stack. 
 * traefik
