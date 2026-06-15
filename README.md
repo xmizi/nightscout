@@ -39,17 +39,17 @@ Pro nekomerční použítí si můžete nainstalovat 2 verze Portaineru
 
 Portainer je nainstalován v předchozím kroku spuštěním instalačního skriptu. Pokud nezadáte licencční klíč (vlevo nahoře je odkaz na Business edici), poběží v "community edici"
 
-#### První přihlášení
+### První přihlášení
 https://IP_ADRESA_SERVERU:9443
 
 POZOR: Při instalaci se vytvoří certifikát podepsaný sám sebou (nedůvěryhodný). Pro přístrup bude potřeba v prohlížeči povolit "výjimku"
 
 Na přihlašovací obrazovce vyplníáte heslo admina (doporučuji zvolit bezpečné heslo). Po přihlášení se zobrazí průvodce, který nabídne vytvoření Enviroment (prostředí, kde budeme instalovat své kontejnery - Nightscout, mongo, traefik a klidně i další). Nemusíme vytvářet nic nové - instalcí Portaineru se už jedno "lokální" připravilo. To nám bude stačit :). Takže klikneme na "Get started". Pak se připojíme k "local" prostředí (tlačítko "Live connect"). Dostaneme se na Dashboard. 
 
-#### Zabezpečení ####
+### Zabezpečení
 Protože je rozhraní Portaineru veřejně dostupné, je velmi důležité přístup zabezpečit volbou dostatečně dlouhého a "neuhádnutelného" hesla. Ještě lepší je omezit přihlášení pouze na důvěryhodné IP adresy za pomoci firewallu. Jde o port ```9443```. Konkrétní nastavení ale záleží na použitém firewallu, takže ho zde uvádět nebudu.
 
-#### Vytváření kontejnerů
+### Vytváření kontejnerů
 
 V levém menu Dashboardu najdeme vše co potřebujeme: 
 * **Stacks**": skupina služeb běžících v kontejneru
