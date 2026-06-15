@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  traefik:
+    image: traefik:latest
+    container_name: traefik
+    restart: always
+    command:
+      - "--api.dashboard=true"
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entryPoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entryPoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entryPoints.web.http.redirections.entryPoint.permanent=true"
+      - "--serverstransport.insecureskipverify=true"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.websecure.http3"
+      # misto mail@domain.tld napiste svuj mail - dulezite pro certifikát!!!
+      - "--certificatesResolvers.letsencrypt.acme.email=mail@domain.tld"
+      - "--certificatesResolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesResolvers.letsencrypt.acme.httpChallenge.entryPoint=web"
+      #logovani
+      - "--accesslog=true"
+      - "--accesslog.filepath=/var/log/traefik-access.log"
+      - "--accesslog.format=CLF"
+      - "--accesslog.filters.statuscodes=200-500"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "/opt/docker/traefik/letsencrypt:/letsencrypt"
+      - "/opt/docker/traefik/log:/var/log"
+    networks:
+      - web
+
+networks:
+  web:
+    external: true
